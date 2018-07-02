@@ -1,0 +1,119 @@
+* {
+	/*margin: 0;*/
+	padding: 0;
+	/*box-sizing: border-box;*/
+}
+
+html {
+	background: gainsboro;
+}
+
+/* Hedaer */
+
+#header {
+	display: flex;
+	margin: 0 auto;
+	background: dimgray;
+	padding: 10px;
+	transition: all 0.3s ease;
+}
+
+#header .text{
+	display: inline-block;
+	vertical-align: middle;
+	color: #fff;
+	font-weight: bold;
+}
+
+#header > h3 {
+	margin: 0 auto;
+	padding: 0;
+}
+
+/* Content */
+.content {
+	margin: 0 auto;
+	transition: all 0.3s ease;
+}
+
+.data {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seeData {
+	width: 580px;
+	margin: 0 auto;
+}
+
+.text {
+	color: dimgray;
+	font-weight: 600;
+}
+
+
+/* Footer */
+.footer {
+	display: flex;
+	margin: 0 auto;
+	background: dimgray;
+	padding: 10px;
+	transition: all 0.3s ease;
+}
+
+.footer > h3 {
+	margin: 0 auto;
+	padding: 0;
+}
+
+#refresh {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: dimgray;
+	border: none;
+	color: #FFFFFF;
+	padding: 5px;
+	text-align: center;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+#button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: dimgray;
+  border: none;
+  color: #FFFFFF;
+  padding: 5px;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+#button:hover span {
+  padding-right: 15px;
+}
+
+#button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
