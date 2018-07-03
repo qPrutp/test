@@ -42,6 +42,59 @@ html {
     align-items: center;
 }
 
+.div-table,
+.table-test {
+	width: 100%;
+}
+
+.table-test {
+	background: darkgray;
+}
+
+.table-number {
+	width: 3%;
+}
+
+.table-name-test {
+	width: 30%;
+}
+
+.table-status {
+	width: 5%;
+}
+
+.table-empty-header {
+	width: 8%;
+}
+
+.table-current-state {
+	width: 54%;
+}
+
+.table-header {
+	background: cadetblue;
+}
+
+.table-content-gaps {
+	background: gainsboro;
+}
+
+.table-content td {
+	background: white;
+}
+
+.table-text-center {
+    text-align: center;
+}
+
+.table-text-left {
+	text-align: left;
+}
+
+.green {
+	background: green;
+}
+
 .seeData {
 	width: 580px;
 	margin: 0 auto;
