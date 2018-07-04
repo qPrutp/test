@@ -3,9 +3,6 @@
 <head>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.4.1/jsgrid.min.css"/>
-    <link type="text/css" rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.4.1/jsgrid-theme.min.css"/>
 	<title>Test from SIPIUS</title>
 </head>
 <body>

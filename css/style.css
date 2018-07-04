@@ -42,6 +42,63 @@ html {
     align-items: center;
 }
 
+.div-table,
+.table-test {
+	width: 100%;
+}
+
+.table-test {
+	background: darkgray;
+}
+
+.table-number {
+	width: 3%;
+}
+
+.table-name-test {
+	width: 30%;
+}
+
+.table-status {
+	width: 5%;
+}
+
+.table-empty-header {
+	width: 8%;
+}
+
+.table-current-state {
+	width: 54%;
+}
+
+.table-header {
+	background: cadetblue;
+}
+
+.table-content-gaps {
+	background: gainsboro;
+}
+
+.table-content td {
+	background: white;
+}
+
+td:hover {
+	background: #ffffe6;
+}
+
+.table-text-center {
+    text-align: center;
+}
+
+.table-text-left {
+	text-align: left;
+}
+
+.green {
+	background: green;
+}
+
 .seeData {
 	width: 580px;
 	margin: 0 auto;
@@ -80,7 +137,7 @@ html {
 	margin: 5px;
 }
 
-#button {
+.button {
   display: inline-block;
   border-radius: 4px;
   background-color: dimgray;
@@ -93,14 +150,18 @@ html {
   margin: 5px;
 }
 
-#button span {
+.button:hover {
+	background: #ff704d;
+}
+
+.button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-#button span:after {
+.button span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -109,11 +170,11 @@ html {
   transition: 0.5s;
 }
 
-#button:hover span {
+.button:hover span {
   padding-right: 15px;
 }
 
-#button:hover span:after {
+.button:hover span:after {
   opacity: 1;
   right: 0;
 }
