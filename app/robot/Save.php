@@ -2,24 +2,6 @@
 
 class Save
 {
-    
-    private $result2 = [
-        [
-            'num' => 1,
-            'test' => 'Проверка наличия файла robots.txt',
-            'status' => 'Ok',
-            'state' => 'Файл robots.txt присутствует',
-            'recommendation' => 'Доработки не требуются'],
-        [
-            'num' => 2,
-            'test' => 'Проверка указания директивы Host',
-            'status' => 'Ошибка',
-            'state' => 'В файле robots.txt не указана директива Host',
-            'recommendation' => 'Программист: Для того, чтобы поисковые системы знали, какая версия сайта является основных зеркалом, необходимо прописать адрес основного зеркала в директиве Host. В данный момент это не прописано. Необходимо добавить в файл robots.txt директиву Host. Директива Host задётся в файле 1 раз, после всех правил.'
-        ]
-    ];
-    private $state = 'Cостояние';
-    private $recommendations = 'Рекомендации';
     private $title = [
         [
             'name'   => '№',
@@ -43,14 +25,12 @@ class Save
         ],
     ];
 
-    function __construct()
+    function __construct($result2, $phpexcel)
     {
-        $this->run();
+        $this->run($result2, $phpexcel);
     }
 
-    protected function run() {
-        require_once('../Classes/PHPExcel.php');
-        $phpexcel = new PHPExcel();
+    protected function run($result2, $phpexcel) {
 
         $phpexcel->getActiveSheet()->getStyle("A2:E2")->applyFromArray(array("font" => array("size" => 15,)));
         $phpexcel->getActiveSheet()->getStyle("A2:E2")->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
@@ -77,13 +57,13 @@ class Save
         }
         $i = 3;
 
-        foreach ($this->result2 as $row) {
+        foreach ($result2 as $k => $row) {
         	$phpexcel->getActiveSheet()->mergeCells("A$i:E$i");
         	$phpexcel->getActiveSheet()->getStyle("A$i:E$i")->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
         	$phpexcel->getActiveSheet()->getStyle("A$i:E$i")->getFill()->getStartColor()->setRGB('e6e6e6');
         	$phpexcel->getActiveSheet()->getStyle("A$i:E$i")->applyFromArray($styleBorderArray);
         	$i++;
-            $phpexcel->getActiveSheet()->setCellValue("A$i", $row['num']);
+            $phpexcel->getActiveSheet()->setCellValue("A$i", $k);
             $phpexcel->getActiveSheet()->mergeCells("A$i:A".($i+1));
             $phpexcel->getActiveSheet()->getStyle("A$i")->getAlignment()->setHorizontal('center');
             $phpexcel->getActiveSheet()->getStyle("A$i")->getAlignment()->setVertical('center');
@@ -100,16 +80,16 @@ class Save
             $phpexcel->getActiveSheet()->getStyle("C$i")->getAlignment()->setHorizontal('center');
             $phpexcel->getActiveSheet()->getStyle("C$i")->getAlignment()->setVertical('center');
             $phpexcel->getActiveSheet()->getStyle("C$i:C".($i+1))->applyFromArray($styleBorderArray);
-            if ($string == "Ok") {
+            if ($string == "Оk") {
             	$phpexcel->getActiveSheet()->getStyle("C$i")->getFill()->getStartColor()->setRGB('99e600');
         	} else {
         		$phpexcel->getActiveSheet()->getStyle("C$i")->getFill()->getStartColor()->setRGB('ff704d');
         	}
-            $string = $this->state;
+            $string = STATE_TITLE;
             $phpexcel->getActiveSheet()->setCellValueExplicit("D$i", $string, PHPExcel_Cell_DataType::TYPE_STRING);
             $phpexcel->getActiveSheet()->getStyle("D$i")->getAlignment()->setVertical('center');
             $phpexcel->getActiveSheet()->getStyle("D$i")->applyFromArray($styleBorderArray);
-            $string = $this->recommendations;
+            $string = RCOMENDATION_TITLE;
             $phpexcel->getActiveSheet()->setCellValueExplicit("D".($i+1), $string, PHPExcel_Cell_DataType::TYPE_STRING);
             $phpexcel->getActiveSheet()->getStyle("D".($i+1))->getAlignment()->setVertical('center');
             $phpexcel->getActiveSheet()->getStyle("D".($i+1))->applyFromArray($styleBorderArray);
@@ -131,14 +111,12 @@ class Save
         $page = $phpexcel->setActiveSheetIndex();
         $page->setTitle("test-sipius");
         $objWriter = PHPExcel_IOFactory::createWriter($phpexcel, 'Excel2007');
-        $filename = "test-sipius.xlsx";
+        $filename = "test-sipius-new.xlsx";
         if (file_exists($filename)) {
             unlink($filename);
         }
         $objWriter->save($filename);
     }
 }
-
-new Save();
 
 ?>
