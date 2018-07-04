@@ -5,8 +5,12 @@
     </div>
 </form>
 
-<div class="div-table">
-	<?php if($result != []) { ?>
+
+<?php if($result != []) { ?>
+    <h4 class="info-block">Ресурс що перевіряється:</h4>
+    <h3 class="info-block"><?php $site_name = $_POST['url']; echo $site_name; ?></h3>
+
+    <div class="div-table">
         <button class="button" onclick="location.href='../test-sipius-new.xlsx'">Завантажити дані</button>
 		<table class="table-test">
 			<tr class="table-header">
@@ -35,5 +39,5 @@
                 <td class="table-current-state table-text-left">			<?php echo $v['recommendation']; } ?>	</td>
             </tr>
 		</table>
-	<?php } ?>
-</div>
+    </div>
+<?php } ?>
